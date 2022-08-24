@@ -39,7 +39,7 @@ func EnabledFeatures(ctx context.Context, osClient osclientset.Interface) (v1alp
 	if infra.Status.ControlPlaneTopology == osconfigv1.ExternalTopologyMode {
 		return features, nil
 	}
-
+	//NOTE(dtantsur/janders) if the code below is updated, GetServerInternalIP() function in provisioning/utils.go needs to be updated to match.
 	switch infra.Status.Platform {
 	case osconfigv1.BareMetalPlatformType:
 		features.ProvisioningNetwork[v1alpha1.ProvisioningNetworkDisabled] = true
